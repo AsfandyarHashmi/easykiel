@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,400i,500&display=swap');
 
+body {
+    background: #fff;
+}
+
 p, div {
     font-family: 'Public Sans', sans-serif;
     font-weight: 400;
+    color: #333
 }
 
 h1, h2, h3, h4, h5 {
     font-family: 'Public Sans', sans-serif;
     font-weight: 500;
+    color: #333
 }
