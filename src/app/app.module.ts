@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ExampleguideComponent } from './pages/exampleguide/exampleguide.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginModalComponent } from './forms/login-modal/login-modal.component';
+import { UserHomeComponent } from './dashboard/user-home/user-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExampleguideComponent,
     HomeComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
