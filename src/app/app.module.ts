@@ -8,6 +8,7 @@ import { ExampleguideComponent } from './pages/exampleguide/exampleguide.compone
 import { HomeComponent } from './pages/home/home.component';
 import { LoginModalComponent } from './forms/login-modal/login-modal.component';
 import { UserHomeComponent } from './dashboard/user-home/user-home.component';
+import { GuideMakerComponent } from './guide-maker/guide-maker.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserHomeComponent } from './dashboard/user-home/user-home.component';
     ExampleguideComponent,
     HomeComponent,
     LoginModalComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    GuideMakerComponent
   ],
   imports: [
     BrowserModule,
