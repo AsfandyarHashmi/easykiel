@@ -1,1 +1,62 @@
-<p>guide-maker works!</p>
+<div class="container mt-5 mb-5">
+  <h1 class="text-center">Guide Maker</h1>
+  <form>
+    <h4 class="mt-4">General Information</h4>
+    <p class="text-muted">Please fill in the fields below to help users easily identify and find your Guide.</p>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" name="title" class="form-control" required>
+          <small class="form-text text-muted">
+            Please choose a unique title. It cannot be the same as any existing Guide.
+          </small>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label>Guide Type</label>
+        <select name="type" class="form-control">
+          <option value="0" selected>Work</option>
+          <option value="1">Leisure</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="desc" class="form-control"></textarea>
+    </div>
+    <h4 class="mt-4">Steps</h4>
+    <p class="text-muted">Please add some steps to your Guide (at least 1 step is required). Be as informative as
+      possible. All steps must have a
+      heading and a description that further explains the heading. Coordinates or location name must be given if the
+      step requires the user the locate something.</p>
+    <div class="btn-group mb-2" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-link" (click)="addStep()"><i class="fas fa-plus"></i> Add Step</button>
+      <button type="button" class="btn btn-link" (click)="clearSteps()"><i class="fas fa-trash"></i> Clear
+        Steps</button>
+    </div>
+    <div *ngFor="let step of step_count" class="card mt-2">
+      <div class="card-body">
+        <h5>Step {{ step }}</h5>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Heading</label>
+              <input type="text" name="step.heading[]" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Coordinates or Location Name (if applicable)</label>
+              <input type="text" name="step.coords[]" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="step.desc[]" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
