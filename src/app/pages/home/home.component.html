@@ -1,69 +1,8 @@
-<!-- <div class="container">
-  <div class="row mt-5">
-    <div class="col-md-3">
-
-    </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" placeholder="Search">
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-md-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Sign up for EasyKiel</h5>
-          <p class="card-text">Create an account to make your own guides, upvote and comment on other's guides. It's free!</p>
-          <app-login-modal></app-login-modal>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <h4>Popular Guides</h4>
-      <div class="row">
-        <div class="col-md-4">
-          <a routerLink="guide/example">
-            <div class="card mt-2 mb-2">
-              <img src="https://via.placeholder.com/150" class="card-img-top">
-              <div class="card-body">
-                <h6 class="card-title">How to register at Rathaus</h6>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <h4>Featured Guides</h4>
-      <div class="card mt-2 mb-2">
-        <img class="card-img-top" src="https://via.placeholder.com/300x150">
-      </div>
-
-    </div>
-  </div>
-</div> -->
-
-
-<div class="container-fluid mt-3">
-  <div class="row">
-    <div class="col-md-1">
-      <a class="navbar-brand animate bounceIn" href="#"><i class="fas fa-map-marker-alt"></i> EasyKiel</a>
-    </div>
-    <div class="col">
-      <nav class="nav justify-content-end">
-        <a class="nav-link active" href="#">Home</a>
-        <a class="nav-link" href="#">My Account</a>
-        <a class="nav-link" href="https://github.com/AsfandyarHashmi/easykiel" target="_none">GitHub</a>
-        <a class="nav-link" href="#">Support</a>
-      </nav>
-    </div>
-  </div>
-</div>
-
 <div class="container">
   <h2 class="text-center mt-5">Featured Guides</h2>
   <div class="row mt-4">
     <div class="col-md-4">
-      <div class="card">
+      <div class="card clickable" [routerLink]="['/guide/example']">
         <img src="assets/1.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">How to register with Kiel City</h5>
