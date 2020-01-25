@@ -13,6 +13,7 @@ import { UserHomeComponent } from './dashboard/user-home/user-home.component';
 import { GuideMakerComponent } from './guide-maker/guide-maker.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './forms/register/register.component';
+import { LoginComponent } from './forms/login/login.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -26,7 +27,8 @@ export function tokenGetter() {
     UserHomeComponent,
     GuideMakerComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

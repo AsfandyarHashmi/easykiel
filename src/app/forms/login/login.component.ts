@@ -5,23 +5,23 @@ import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
   user: User;
   error = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.user = new User();
+  }
 
   ngOnInit() {
-    this.user = new User();
-    this.user.user_role = 1;
   }
 
   onSubmit() {
-    this.authService.register(this.user).subscribe(res => {
+    this.authService.login(this.user).subscribe(res => {
       localStorage.setItem('access_token', "" + res['token']);
       this.router.navigate(['']);
     }, httperror => {
