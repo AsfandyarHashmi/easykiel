@@ -14,6 +14,7 @@ import { GuideMakerComponent } from './guide-maker/guide-maker.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './forms/register/register.component';
 import { LoginComponent } from './forms/login/login.component';
+import { LoggedOutComponent } from './pages/logged-out/logged-out.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -28,7 +29,8 @@ export function tokenGetter() {
     GuideMakerComponent,
     NavbarComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LoggedOutComponent
   ],
   imports: [
     BrowserModule,
