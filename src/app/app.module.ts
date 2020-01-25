@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { JwtModule } from "@auth0/angular-jwt";
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +14,10 @@ import { GuideMakerComponent } from './guide-maker/guide-maker.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './forms/register/register.component';
 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +26,21 @@ import { RegisterComponent } from './forms/register/register.component';
     UserHomeComponent,
     GuideMakerComponent,
     NavbarComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:3000"],
+        blacklistedRoutes: []
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
