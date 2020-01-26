@@ -14,7 +14,6 @@ export class UserHomeComponent implements OnInit {
   constructor(private guideService: GuideService, private auth: AuthService) { 
     this.guideService.getByUser(auth.currentUser().id).subscribe(res => {
       this.guides = res;
-      console.log(this.guides);
     });
   }
 

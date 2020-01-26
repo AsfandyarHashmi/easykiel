@@ -1,33 +1,29 @@
 <div class="container">
-  <h2 class="text-center mt-5">Featured Guides</h2>
-  <div class="row mt-4">
-    <div class="col-md-4">
-      <div class="card clickable" [routerLink]="['/guide/example']">
-        <img src="assets/1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">How to register with Kiel City</h5>
-          <p class="card-text"><small class="text-muted"><i class="fas fa-check-circle"></i> EasyKiel Official</small></p>
-
+  <h1 class="text-center mt-5">Find activities near you!</h1>
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <div class="form-group">
+        <div class="input-group input-group-lg">'
+          <input class="form-control form-control-lg text-center" type="text" placeholder="Enter your location here" [(ngModel)]="search_word">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="search()" type="button">Search</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="assets/2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Find your department building at CAU</h5>
-          <p class="card-text"><small class="text-muted"><i class="fas fa-check-circle"></i> EasyKiel Official</small></p>
-        </div>
-      </div>
+  </div>
+  <div id="map" style="height: 500px;"></div>
+  <h4 class="mb-3 mt-5">Latest Guides</h4>
+  <div *ngFor="let guide of guides" class="row">
+    <div class="col-md-2">
+      <img class="img-fluid" src="assets/1.jpg">
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="assets/3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">A great tour of Laboe</h5>
-          <p class="card-text"><small class="text-muted"><i class="fas fa-check-circle"></i> EasyKiel Official</small></p>
-        </div>
-      </div>
+    <div class="col-md-10">
+      <h5>{{ guide.title }}</h5>
+      <p class="text-muted">EasyKiel Official / 1st Jan 2020</p>
+      <a [routerLink]="['/guide/' + guide.slug]" class="btn btn-outline-primary btn-sm">View</a>&nbsp;
+      <a [routerLink]="['/guide/' + guide.slug + '/print']" target="_none"
+        class="btn btn-outline-primary btn-sm">Print</a>
     </div>
   </div>
 </div>

@@ -26,4 +26,8 @@ export class GuideService {
   getByUser(id: string) {
     return this.http.get("http://localhost:3000/guides/user/" + id);
   }
+
+  getLatest() {
+    return this.http.get("http://localhost:3000/guides/get/latest/");
+  }
 }
