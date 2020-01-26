@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Guide } from '../models/Guide';
+import { Step } from '../models/Step';
+import { GuideService } from '../services/guide.service';
 
 @Component({
   selector: 'app-guide-maker',
@@ -6,20 +9,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./guide-maker.component.css']
 })
 export class GuideMakerComponent implements OnInit {
-  step_count = [1];
+  guide: Guide;
+  steps: Step[];
+  newStep: Step;
+  count = 0;
+  makingstep = false;
 
-  constructor() { }
+  constructor(private guideService: GuideService) {
+    this.guide = new Guide();
+    this.steps = [];
+   }
 
   ngOnInit() {
   }
 
   addStep() {
-    this.step_count.push(this.step_count[this.step_count.length - 1] + 1);
+    this.count = this.steps.length + 1;
+    this.makingstep = true;
+    this.newStep = new Step();
+  }
+
+  confirmStep() {
+    this.steps.push(this.newStep);
+    this.makingstep = false;
+    this.newStep = new Step();
+    this.count = this.steps.length;
+  }
+
+  cancelStep() {
+    this.makingstep = false;
+    this.count = this.steps.length;
   }
 
   clearSteps() {
-    this.step_count = [];
-    this.step_count = [1];
+    this.steps = [];
   }
 
+  submit() {
+    this.guide.steps = JSON.stringify(this.steps);
+    this.guideService.create(this.guide).subscribe(res => {
+      
+    });
+  }
 }
