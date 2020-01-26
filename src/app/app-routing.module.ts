@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'guide/example', component: ExampleguideComponent },
   { path: '', component: HomeComponent },
   { path: 'dashboard', component: UserHomeComponent, canActivate: [AuthGuard] },
-  { path: 'guide/maker', component: GuideMakerComponent },
+  { path: 'dashboard/guide-maker', component: GuideMakerComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: RegisterComponent },
   { path: 'signin', component: LoginComponent },
   { path: 'logged-out', component: LoggedOutComponent }
