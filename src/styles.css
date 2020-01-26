@@ -36,3 +36,11 @@ a:hover {
 .form-control {
     background: #ecf0f1;
 }
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
