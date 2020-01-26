@@ -4,7 +4,8 @@
     <div class="col-md-5">
       <div class="form-group">
         <div class="input-group input-group-lg">
-          <input class="form-control form-control-lg text-center" type="text" placeholder="Enter your location here" [(ngModel)]="search_word">
+          <input class="form-control form-control-lg text-center" type="text" placeholder="Enter your location here"
+            [(ngModel)]="search_word">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" (click)="search()" type="button">Search</button>
           </div>
@@ -12,7 +13,23 @@
       </div>
     </div>
   </div>
-  <div id="map" style="height: 500px;"></div>
+  <div class="card">
+    <div class="row">
+      <div class="col">
+        <div id="map" style="height: 500px;"></div>
+      </div>
+      <div *ngIf="markerview" class="col-md-3">
+        <div class="card-body">
+          <h5 class="mt-3">{{ selected_guide.title }}</h5>
+          <p class="text-muted">EasyKiel Official</p>
+          <p>{{ selected_guide.desc }}</p>
+          <a [routerLink]="['/guide/' + selected_guide.slug]" class="btn btn-outline-primary btn-block"><i class="fas fa-share"></i> View Guide</a>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
   <h4 class="mb-3 mt-5">Latest Guides</h4>
   <div *ngFor="let guide of guides" class="row">
     <div class="col-md-2">
