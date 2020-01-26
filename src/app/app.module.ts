@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './forms/register/register.component';
 import { LoginComponent } from './forms/login/login.component';
 import { LoggedOutComponent } from './pages/logged-out/logged-out.component';
+import { GuideComponent } from './guide/guide/guide.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -30,7 +31,8 @@ export function tokenGetter() {
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
-    LoggedOutComponent
+    LoggedOutComponent,
+    GuideComponent
   ],
   imports: [
     BrowserModule,

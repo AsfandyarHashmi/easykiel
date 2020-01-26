@@ -1,0 +1,42 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <p><small><b>Guide</b></small><br>EasyKiel Official</p>
+          <p><small><b>Updated</b></small><br>1 Jan 2019</p>
+          <p><small><b>Status</b></small><br>Authenticated</p>
+          <p><small><b>Upvotes</b></small><br>124</p>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-sm btn-link"><i class="fas fa-arrow-up"></i> Upvote</button>
+            <button type="button" class="btn btn-sm btn-link"><i class="fas fa-print"></i> Print</button>
+            <button type="button" class="btn btn-sm btn-link"><i class="fas fa-print"></i> Report</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-2">
+        <div class="card-body">
+          <h5 class="card-title">Comments</h5>
+          <p class="card-text"><small><b>johndoe</b></small><br>It's great!<br><small class="text-muted">1 Jan
+              2019</small></p>
+          <hr>
+          <p class="card-text"><small><b>auth123</b></small><br>It needs to be updated.<br><small class="text-muted">2
+              Jan 2019</small></p>
+          <button type="button" class="btn btn-primary btn-block">Comment</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h1>{{ guide.title }}</h1>
+      <!-- <img class="card-img-top mb-2" src="https://via.placeholder.com/1024x500"> -->
+      <div id="map" style="height: 500px;"></div>
+      <div *ngFor="let step of steps; index as i" class="card mt-2">
+        <div class="card-body">
+          <h5 class="card-title">Step {{ i + 1 }}: {{ step.heading }}</h5>
+          <p class="card-text">{{ step.desc }}</p>
+          <button (click)="panTo(step.coords)" *ngIf="step.coords" type="button" class="btn btn-primary">Show on map</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Guide } from '../models/Guide';
 import { Step } from '../models/Step';
 import { GuideService } from '../services/guide.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-guide-maker',
@@ -15,7 +16,7 @@ export class GuideMakerComponent implements OnInit {
   count = 0;
   makingstep = false;
 
-  constructor(private guideService: GuideService) {
+  constructor(private guideService: GuideService, private router: Router) {
     this.guide = new Guide();
     this.steps = [];
    }
@@ -48,7 +49,7 @@ export class GuideMakerComponent implements OnInit {
   submit() {
     this.guide.steps = JSON.stringify(this.steps);
     this.guideService.create(this.guide).subscribe(res => {
-      
+      this.router.navigate(['/guide/' + res['slug']]);
     });
   }
 }
