@@ -9,7 +9,7 @@
           <p><small><b>Upvotes</b></small><br>124</p>
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-sm btn-link"><i class="fas fa-arrow-up"></i> Upvote</button>
-            <button type="button" class="btn btn-sm btn-link"><i class="fas fa-print"></i> Print</button>
+            <a [routerLink]="['/guide/' + guide.slug + '/print']" target="_none" class="btn btn-sm btn-link"><i class="fas fa-print"></i> Print</a>
             <button type="button" class="btn btn-sm btn-link"><i class="fas fa-print"></i> Report</button>
           </div>
         </div>

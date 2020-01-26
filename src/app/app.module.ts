@@ -16,6 +16,7 @@ import { RegisterComponent } from './forms/register/register.component';
 import { LoginComponent } from './forms/login/login.component';
 import { LoggedOutComponent } from './pages/logged-out/logged-out.component';
 import { GuideComponent } from './guide/guide/guide.component';
+import { PrintableComponent } from './guide/printable/printable.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -32,7 +33,8 @@ export function tokenGetter() {
     RegisterComponent,
     LoginComponent,
     LoggedOutComponent,
-    GuideComponent
+    GuideComponent,
+    PrintableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{ guide.title }}</h1>
+      <p>By EasyKiel Official / Updated: 1st Jan 2020</p>
+      <!-- <img class="card-img-top mb-2" src="https://via.placeholder.com/1024x500"> -->
+      <div id="map" style="height: 500px;"></div>
+      <div class="mt-5" *ngFor="let step of steps; index as i">
+        <h5 class="card-title">Step {{ i + 1 }}: {{ step.heading }}</h5>
+        <p>{{ step.desc }}<br><span *ngIf="step.coords">Location: {{ step.coords }}</span></p>
+      </div>
+    </div>
+  </div>
+</div>
