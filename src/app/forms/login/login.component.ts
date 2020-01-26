@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.user).subscribe(res => {
       localStorage.setItem('access_token', "" + res['token']);
-      this.authService.loggedin = true;
+      this.authService.validateSession();
       this.router.navigate(['']);
     }, httperror => {
       this.error = true;

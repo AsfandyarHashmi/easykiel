@@ -8,14 +8,11 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthService {
-  user_token: string;
   helper;
   public loggedin = false;
 
   constructor(private http: HttpClient) {
-    this.user_token = localStorage.getItem('access_token');
     this.helper = new JwtHelperService();
-    this.loggedin = this.validSession();
   }
 
   register(user: User) {
@@ -27,18 +24,24 @@ export class AuthService {
   }
 
   currentUser() {
-    return this.helper.decodeToken(this.user_token);
+    return this.helper.decodeToken(this.getToken());
   }
 
-  validSession() {
-    if(!this.helper.isTokenExpired(this.user_token) && this.loggedin) {
+  validateSession() {
+    if(!this.helper.isTokenExpired(this.getToken())) {
+      this.loggedin = true;
       return true;
     }
+    this.loggedin = false;
     return false;
   }
 
   logout() {
     this.loggedin = false;
     localStorage.removeItem('access_token');
+  }
+
+  getToken() {
+    return localStorage.getItem('access_token');
   }
 }
