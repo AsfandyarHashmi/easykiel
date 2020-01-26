@@ -33,7 +33,7 @@
   <h4 class="mt-5">Latest Guides</h4>
   <div *ngFor="let guide of guides" class="row mt-3">
     <div class="col-md-2">
-      <img class="img-fluid" src="assets/1.jpg">
+      <img class="img-fluid" src="assets/{{ guide.slug }}.jpg">
     </div>
     <div class="col-md-10">
       <h5>{{ guide.title }}</h5>

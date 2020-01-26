@@ -49,6 +49,7 @@ export class GuideMakerComponent implements OnInit {
   submit() {
     this.guide.steps = JSON.stringify(this.steps);
     this.guideService.create(this.guide).subscribe(res => {
+
       this.router.navigate(['/guide/' + res['slug']]);
     });
   }
