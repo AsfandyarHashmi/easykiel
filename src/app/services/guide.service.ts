@@ -19,7 +19,11 @@ export class GuideService {
     return this.http.post("http://localhost:3000/guides/create", guide);
   }
 
-  getBySlug(slug: String) {
+  getBySlug(slug: string) {
     return this.http.get<Guide>("http://localhost:3000/guides/" + slug);
+  }
+
+  getByUser(id: string) {
+    return this.http.get("http://localhost:3000/guides/user/" + id);
   }
 }
